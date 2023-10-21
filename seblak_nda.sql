@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Okt 2023 pada 15.38
+-- Waktu pembuatan: 21 Okt 2023 pada 16.19
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -35,6 +35,15 @@ CREATE TABLE `detail_pemesanan` (
   `qty_pesan` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `detail_pemesanan`
+--
+
+INSERT INTO `detail_pemesanan` (`id_detail_pesan`, `id_pemesanan`, `id_menu`, `qty_pesan`) VALUES
+(1, '1', 2, 1),
+(2, '2', 2, 2),
+(3, '2', 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -56,8 +65,8 @@ CREATE TABLE `diskon` (
 --
 
 INSERT INTO `diskon` (`id_diskon`, `id_menu`, `id_user`, `nama_diskon`, `diskon`, `tgl_selesai`, `member`) VALUES
-(1, '1', 1, 'Sale in the day!', '5', '2023-11-30', 1),
-(2, '2', 1, 'sale!', '3', '2023-10-26', 3);
+(1, '2', 1, 'Sale in the day!', '5', '2023-11-30', 1),
+(2, '2', 1, 'sale!', '4', '2023-10-26', 3);
 
 -- --------------------------------------------------------
 
@@ -67,8 +76,7 @@ INSERT INTO `diskon` (`id_diskon`, `id_menu`, `id_user`, `nama_diskon`, `diskon`
 
 CREATE TABLE `kritik_saran` (
   `id_kritik_saran` int(11) NOT NULL,
-  `id_pelanggan` int(11) DEFAULT NULL,
-  `id_menu` int(11) DEFAULT NULL,
+  `id_pemesanan` int(11) DEFAULT NULL,
   `kritik_saran` text DEFAULT NULL,
   `time_kritik_saran` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -77,9 +85,8 @@ CREATE TABLE `kritik_saran` (
 -- Dumping data untuk tabel `kritik_saran`
 --
 
-INSERT INTO `kritik_saran` (`id_kritik_saran`, `id_pelanggan`, `id_menu`, `kritik_saran`, `time_kritik_saran`) VALUES
-(1, 1, NULL, 'ok', NULL),
-(2, 1, NULL, 'ok', '2023-05-10 01:08:24');
+INSERT INTO `kritik_saran` (`id_kritik_saran`, `id_pemesanan`, `kritik_saran`, `time_kritik_saran`) VALUES
+(1, 1, 'enak bangett', '2023-10-21 19:33:23');
 
 -- --------------------------------------------------------
 
@@ -101,8 +108,8 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id_menu`, `nama_menu`, `harga_menu`, `stok_menu`, `gambar`, `deskripsi`) VALUES
-(1, 'Seblak Kerupuk Daun Jeruk', '17000', '123', 'WhatsApp_Image_2023-10-17_at_15_42_57_70e6d1361.jpg', 'Kerupuk bawang ekstra daun jeruk'),
-(2, 'Seblak Kerupuk Original', '18000', '343', 'WhatsApp_Image_2023-10-17_at_15_42_57_6ffaa2211.jpg', 'Kerupuk Orginal Level Pedes');
+(1, 'Seblak Kerupuk Daun Jeruk', '17000', '122', 'WhatsApp_Image_2023-10-17_at_15_42_57_70e6d1361.jpg', 'Kerupuk bawang ekstra daun jeruk'),
+(2, 'Seblak Kerupuk Original', '18000', '340', 'WhatsApp_Image_2023-10-17_at_15_42_57_6ffaa2211.jpg', 'Kerupuk Orginal Level Pedes');
 
 -- --------------------------------------------------------
 
@@ -126,7 +133,7 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `jk_pelanggan`, `no_hp_pelanggan`, `username_pelanggan`, `password_pelanggan`, `point`, `level_member`) VALUES
-(1, 'elsa', 'perempuan', '089192819281', 'elsa', '12341234', 440, 3),
+(1, 'elsa', 'perempuan', '089192819281', 'elsa', '12341234', 540, 3),
 (2, 'Ahmad Hadi', 'Laki - Laki', '089987654541', 'ahmad', 'ahmadhadi', 0, 3);
 
 -- --------------------------------------------------------
@@ -136,7 +143,7 @@ INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `jk_pelanggan`, `no_h
 --
 
 CREATE TABLE `pemesanan` (
-  `id_pemesanan` varchar(11) NOT NULL,
+  `id_pemesanan` int(11) NOT NULL,
   `id_pengiriman` int(11) NOT NULL,
   `id_pelanggan` int(11) DEFAULT NULL,
   `tgl_pesan` date DEFAULT NULL,
@@ -146,6 +153,14 @@ CREATE TABLE `pemesanan` (
   `bukti_pembayaran` text DEFAULT NULL,
   `time_pesan` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pemesanan`
+--
+
+INSERT INTO `pemesanan` (`id_pemesanan`, `id_pengiriman`, `id_pelanggan`, `tgl_pesan`, `total_pesan`, `status_pesan`, `status_pembayaran`, `bukti_pembayaran`, `time_pesan`) VALUES
+(1, 2, 1, '2023-10-21', 25000, 4, 1, 'Ini-Dia-Bukti-Transfer-Mandiri-Dari-ATM-mBanking-dan-Internet-Banking-Mandiri-1.jpg', '2023-10-21 09:44:19'),
+(2, 1, 1, '2023-10-21', 66560, 0, 0, '0', '2023-10-21 14:10:35');
 
 -- --------------------------------------------------------
 
@@ -251,7 +266,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `detail_pemesanan`
 --
 ALTER TABLE `detail_pemesanan`
-  MODIFY `id_detail_pesan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `diskon`
@@ -263,7 +278,7 @@ ALTER TABLE `diskon`
 -- AUTO_INCREMENT untuk tabel `kritik_saran`
 --
 ALTER TABLE `kritik_saran`
-  MODIFY `id_kritik_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kritik_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `menu`
@@ -275,7 +290,13 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `pemesanan`
+--
+ALTER TABLE `pemesanan`
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengiriman`

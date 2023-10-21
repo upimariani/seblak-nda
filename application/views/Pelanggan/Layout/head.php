@@ -50,18 +50,25 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<div class="navbar-nav mx-auto">
-						<a href="index.html" class="nav-item nav-link active">Home</a>
-						<a href="about.html" class="nav-item nav-link">Pesanan Saya</a>
-						<a href="about.html" class="nav-item nav-link">Login</a>
-						<a href="about.html" class="nav-item nav-link"></i>Selamat Datang,</a>
+						<?php
+						if ($this->session->userdata('id_pelanggan') != '') {
+						?>
+							<a href="<?= base_url('Pelanggan/cHome') ?>" class="nav-item nav-link active">Home</a>
+							<a href="<?= base_url('Pelanggan/cPesananSaya') ?>" class="nav-item nav-link">Pesanan Saya</a>
+							<a href="<?= base_url('Pelanggan/cLogin/logout') ?>" class="nav-item nav-link">Logout</a>
+							<a href="#" class="nav-item nav-link"></i>Selamat Datang, <?= $this->session->userdata('nama') ?></a>
+
+							<?php
+							$jml = 0;
+							foreach ($this->cart->contents() as $key => $value) {
+								$jml += $value['qty'];
+							}
+							?>
+							<a href="<?= base_url('Pelanggan/cCart/view') ?>" class="nav-item nav-link"><i class="bi bi-cart"></i><span class="badge bg-success"><?= $jml ?></span></a>
 
 						<?php
-						$jml = 0;
-						foreach ($this->cart->contents() as $key => $value) {
-							$jml += $value['qty'];
 						}
 						?>
-						<a href="<?= base_url('Pelanggan/cCart/view') ?>" class="nav-item nav-link"><i class="bi bi-cart"></i><span class="badge bg-success"><?= $jml ?></span></a>
 
 					</div>
 				</div>

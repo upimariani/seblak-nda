@@ -1,5 +1,5 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-light-warning elevation-4">
+<aside class="main-sidebar sidebar-dark-warning elevation-4">
 	<!-- Brand Logo -->
 	<a href="index3.html" class="brand-link">
 		<img src="<?= base_url('asset/AdminLTE/') ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">

@@ -34,35 +34,75 @@
 					<?php
 					$sekon = 1;
 					foreach ($katalog as $key => $value) {
+						if ($value->diskon != NULL) {
+							if ($value->member == $this->session->userdata('member')) {
+
 					?>
+								<div class="col-lg-6 wow bounceInUp" data-wow-delay="0.<?= $sekon++ ?>s">
+									<form action="<?= base_url('Pelanggan/cCart') ?>" method="POST">
+										<input type="hidden" name="id" value="<?= $value->id_menu ?>">
+										<input type="hidden" name="name" value="<?= $value->nama_menu ?>">
 
-						<div class="col-lg-6 wow bounceInUp" data-wow-delay="0.<?= $sekon++ ?>s">
-							<form action="<?= base_url('Pelanggan/cCart') ?>" method="POST">
-								<input type="hidden" name="id" value="<?= $value->id_menu ?>">
-								<input type="hidden" name="name" value="<?= $value->nama_menu ?>">
-								<input type="hidden" name="price" value="<?= $value->harga_menu ?>">
-								<input type="hidden" name="stok" value="<?= $value->stok_menu ?>">
-								<input type="hidden" name="gambar" value="<?= $value->gambar ?>">
-								<div class="menu-item d-flex align-items-center">
-									<img class="flex-shrink-0 img-fluid rounded-circle" style="width: 100px;" src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>" alt="">
+										<input type="hidden" name="stok" value="<?= $value->stok_menu ?>">
+										<input type="hidden" name="gambar" value="<?= $value->gambar ?>">
+										<div class="menu-item d-flex align-items-center">
+											<img class="flex-shrink-0 img-fluid rounded-circle" style="width: 100px;" src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>" alt="">
 
-									<div class="w-100 d-flex flex-column text-start ps-4">
-										<div class="d-flex justify-content-between border-bottom border-primary pb-2 mb-2">
-											<h4><?= $value->nama_menu ?></h4>
-											<h4 class="text-primary">Rp. <?= number_format($value->harga_menu) ?></h4>
+											<div class="w-100 d-flex flex-column text-start ps-4">
+												<div class="d-flex justify-content-between border-bottom border-primary pb-2 mb-2">
+													<h4><?= $value->nama_menu ?></h4>
+
+													<input type="hidden" name="price" value="<?= $value->harga_menu - ($value->diskon / 100 * $value->harga_menu) ?>">
+													<h4 class="text-primary">Rp. <?= number_format($value->harga_menu - ($value->diskon / 100 * $value->harga_menu)) ?></h4>
+
+
+
+
+												</div>
+												<p class="mb-0"><?= $value->deskripsi ?> </p>
+												<div class="row">
+													<div class="col-lg-6"><button type="submit" class="btn btn-primary mt-3">Add To Cart</button></div>
+													<div class="col-lg-6"></div>
+												</div>
+
+											</div>
 										</div>
-										<p class="mb-0"><?= $value->deskripsi ?> </p>
-										<div class="row">
-											<div class="col-lg-6"><button type="submit" class="btn btn-primary mt-3">Add To Cart</button></div>
-											<div class="col-lg-6"></div>
-										</div>
-
-									</div>
+									</form>
 								</div>
-							</form>
-						</div>
 
+							<?php
+							}
+						} else {
+							?>
+							<div class="col-lg-6 wow bounceInUp" data-wow-delay="0.<?= $sekon++ ?>s">
+								<form action="<?= base_url('Pelanggan/cCart') ?>" method="POST">
+									<input type="hidden" name="id" value="<?= $value->id_menu ?>">
+									<input type="hidden" name="name" value="<?= $value->nama_menu ?>">
+
+									<input type="hidden" name="stok" value="<?= $value->stok_menu ?>">
+									<input type="hidden" name="gambar" value="<?= $value->gambar ?>">
+									<div class="menu-item d-flex align-items-center">
+										<img class="flex-shrink-0 img-fluid rounded-circle" style="width: 100px;" src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>" alt="">
+
+										<div class="w-100 d-flex flex-column text-start ps-4">
+											<div class="d-flex justify-content-between border-bottom border-primary pb-2 mb-2">
+												<h4><?= $value->nama_menu ?></h4>
+
+												<input type="hidden" name="price" value="<?= $value->harga_menu ?>">
+												<h4 class="text-primary">Rp. <?= number_format($value->harga_menu) ?></h4>
+											</div>
+											<p class="mb-0"><?= $value->deskripsi ?> </p>
+											<div class="row">
+												<div class="col-lg-6"><button type="submit" class="btn btn-primary mt-3">Add To Cart</button></div>
+												<div class="col-lg-6"></div>
+											</div>
+
+										</div>
+									</div>
+								</form>
+							</div>
 					<?php
+						}
 					}
 					?>
 				</div>
@@ -84,53 +124,66 @@
 			<h1 class="display-5 mb-5">What Our Customers says!</h1>
 		</div>
 		<div class="owl-carousel owl-theme testimonial-carousel testimonial-carousel-1 mb-4 wow bounceInUp" data-wow-delay="0.1s">
-			<div class="testimonial-item rounded bg-light">
-				<div class="d-flex mb-3">
-					<img src="img/testimonial-1.jpg" class="img-fluid rounded-circle flex-shrink-0" alt="">
-					<div class="position-absolute" style="top: 15px; right: 20px;">
-						<i class="fa fa-quote-right fa-2x"></i>
+			<?php
+			foreach ($kritik_saran as $key => $value) {
+			?>
+				<div class="testimonial-item rounded bg-light">
+					<div class="d-flex mb-3">
+						<div class="position-absolute" style="top: 15px; right: 20px;">
+							<i class="fa fa-quote-right fa-2x"></i>
+						</div>
+						<div class="ps-3 my-auto">
+							<h4 class="mb-0"><?= $value->nama_pelanggan ?></h4>
+							<p class="m-0"><?php if ($value->level_member == '3') {
+												echo 'Clasic';
+											} else if ($value->level_member == '2') {
+												echo 'Silver';
+											} else {
+												echo 'Gold';
+											} ?></p>
+						</div>
 					</div>
-					<div class="ps-3 my-auto">
-						<h4 class="mb-0">Person Name</h4>
-						<p class="m-0">Profession</p>
+					<div class="testimonial-content">
+
+						<p class="fs-5 m-0 pt-3"><?= $value->kritik_saran ?></p>
 					</div>
 				</div>
-				<div class="testimonial-content">
-					<div class="d-flex">
-						<i class="fas fa-star text-primary"></i>
-						<i class="fas fa-star text-primary"></i>
-						<i class="fas fa-star text-primary"></i>
-						<i class="fas fa-star text-primary"></i>
-						<i class="fas fa-star text-primary"></i>
-					</div>
-					<p class="fs-5 m-0 pt-3">Lorem ipsum dolor sit amet elit, sed do eiusmod tempor ut labore et dolore magna aliqua.</p>
-				</div>
-			</div>
+
+			<?php
+			}
+			?>
+
 
 		</div>
 		<div class="owl-carousel testimonial-carousel testimonial-carousel-2 wow bounceInUp" data-wow-delay="0.3s">
-			<div class="testimonial-item rounded bg-light">
-				<div class="d-flex mb-3">
-					<img src="img/testimonial-1.jpg" class="img-fluid rounded-circle flex-shrink-0" alt="">
-					<div class="position-absolute" style="top: 15px; right: 20px;">
-						<i class="fa fa-quote-right fa-2x"></i>
+			<?php
+			foreach ($kritik_saran as $key => $value) {
+			?>
+				<div class="testimonial-item rounded bg-light">
+					<div class="d-flex mb-3">
+						<div class="position-absolute" style="top: 15px; right: 20px;">
+							<i class="fa fa-quote-right fa-2x"></i>
+						</div>
+						<div class="ps-3 my-auto">
+							<h4 class="mb-0"><?= $value->nama_pelanggan ?></h4>
+							<p class="m-0"><?php if ($value->level_member == '3') {
+												echo 'Clasic';
+											} else if ($value->level_member == '2') {
+												echo 'Silver';
+											} else {
+												echo 'Gold';
+											} ?></p>
+						</div>
 					</div>
-					<div class="ps-3 my-auto">
-						<h4 class="mb-0">Person Name</h4>
-						<p class="m-0">Profession</p>
+					<div class="testimonial-content">
+
+						<p class="fs-5 m-0 pt-3"><?= $value->kritik_saran ?></p>
 					</div>
 				</div>
-				<div class="testimonial-content">
-					<div class="d-flex">
-						<i class="fas fa-star text-primary"></i>
-						<i class="fas fa-star text-primary"></i>
-						<i class="fas fa-star text-primary"></i>
-						<i class="fas fa-star text-primary"></i>
-						<i class="fas fa-star text-primary"></i>
-					</div>
-					<p class="fs-5 m-0 pt-3">Lorem ipsum dolor sit amet elit, sed do eiusmod tempor ut labore et dolore magna aliqua.</p>
-				</div>
-			</div>
+
+			<?php
+			}
+			?>
 
 		</div>
 	</div>

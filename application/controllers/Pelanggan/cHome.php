@@ -13,7 +13,8 @@ class cHome extends CI_Controller
 	public function index()
 	{
 		$data = array(
-			'katalog' => $this->mHome->katalog()
+			'katalog' => $this->mHome->katalog(),
+			'kritik_saran' => $this->mHome->kritik_saran()
 		);
 		$this->load->view('Pelanggan/Layout/head');
 		$this->load->view('Pelanggan/vHome', $data);
