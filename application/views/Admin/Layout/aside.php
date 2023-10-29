@@ -60,7 +60,7 @@
 						</p>
 					</a>
 				</li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a href="<?= base_url('Admin/cOngkir') ?>" class="nav-link  <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cOngkir') {
 																					echo 'active';
 																				}  ?>">
@@ -69,7 +69,7 @@
 							Data Ongkir
 						</p>
 					</a>
-				</li>
+				</li> -->
 
 				<li class="nav-item">
 					<a href="<?= base_url('Admin/cTransaksi') ?>" class="nav-link  <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cTransaksi') {

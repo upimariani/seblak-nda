@@ -27,7 +27,7 @@
 						<div class="row">
 							<div class="col-12">
 								<h4>
-									<i class="fas fa-globe"></i> AdminLTE, Inc.
+									<i class="fas fa-globe"></i> Invoice Transaksi Pelanggan
 									<small class="float-right">Date: <?= date('Y-m-d') ?></small>
 								</h4>
 							</div>
@@ -39,7 +39,11 @@
 								From
 								<address>
 									<strong> <?= $detail_transaksi['transaksi']->nama_pelanggan ?></strong><br>
-									<?= $detail_transaksi['transaksi']->nama_kecamatan ?><br>
+									Provinsi <?= $detail_transaksi['transaksi']->prov ?><br>
+									Kota/Kabupaten <?= $detail_transaksi['transaksi']->kota ?><br>
+									Alamat Detail <?= $detail_transaksi['transaksi']->alamat_detail ?><br>
+									<hr>
+									Expedisi: <?= $detail_transaksi['transaksi']->expedisi ?> | <?= $detail_transaksi['transaksi']->estimasi ?><br>
 
 								</address>
 							</div>
@@ -101,8 +105,12 @@
 											<td>Rp. <?= number_format($detail_transaksi['transaksi']->total_pesan)  ?></td>
 										</tr>
 										<tr>
+											<th>Ongkir:</th>
+											<td>Rp. <?= number_format($detail_transaksi['transaksi']->ongkir)  ?></td>
+										</tr>
+										<tr>
 											<th>Diskon:</th>
-											<td>Rp. <?= number_format($total - $detail_transaksi['transaksi']->total_pesan + $detail_transaksi['transaksi']->ongkir)  ?></td>
+											<td>Rp. <?= number_format($total - $detail_transaksi['transaksi']->total_pesan)  ?></td>
 										</tr>
 									</table>
 								</div>

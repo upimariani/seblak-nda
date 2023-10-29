@@ -13,24 +13,29 @@ class cCheckout extends CI_Controller
 	public function index()
 	{
 		$data = array(
-			'kecamatan' => $this->mOngkir->select()
+			// 'kecamatan' => $this->mOngkir->select()
 		);
 		$this->load->view('Pelanggan/Layout/head');
 		$this->load->view('Pelanggan/vCheckout', $data);
-		$this->load->view('Pelanggan/Layout/footer');
+		// $this->load->view('Pelanggan/Layout/footer');
 	}
 	public function pesan()
 	{
 
 		//menyimpan di data pemesanan
 		$data = array(
-			'id_pengiriman' => $this->input->post('kecamatan'),
 			'id_pelanggan' => $this->session->userdata('id_pelanggan'),
 			'tgl_pesan' => date('Y-m-d'),
-			'total_pesan' => $this->input->post('total'),
+			'total_pesan' => $this->cart->total(),
 			'status_pesan' => '0',
 			'status_pembayaran' => '0',
-			'bukti_pembayaran' => '0'
+			'bukti_pembayaran' => '0',
+			'prov' => $this->input->post('provinsi'),
+			'kota' => $this->input->post('kota'),
+			'expedisi' => $this->input->post('expedisi'),
+			'estimasi' => $this->input->post('estimasi'),
+			'ongkir' => $this->input->post('ongkir'),
+			'alamat_detail' => $this->input->post('alamat')
 		);
 		$this->db->insert('pemesanan', $data);
 

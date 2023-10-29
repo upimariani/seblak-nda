@@ -41,7 +41,11 @@
 							<?php echo form_open_multipart('Pelanggan/cPesananSaya/bayar/' . $detail_transaksi['transaksi']->id_pemesanan); ?>
 							<table class="table table-striped">
 								<tr>
-									<td>Pembayaran : <br> <small class="text-danger">Pembayaran dilakukan melalui transfer via bank BRI - 098890-102131 Atas Nama Seblak NDA</small></td>
+									<td>Pembayaran : <br> <small class="text-danger">Pembayaran dilakukan melalui transfer via: <br>
+											Bank BCA - 098890-102131 Atas Nama Seblak NDA <br>
+											Gopay - 08982231321 <br>
+											Shopee Pay - 08982231321
+										</small></td>
 								</tr>
 								<tr>
 									<td><input class="form-control" name="gambar" type="file"></td>

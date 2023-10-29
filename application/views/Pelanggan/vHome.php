@@ -7,7 +7,7 @@
 				<h1 class="display-1 mb-4 animated bounceInDown">Seblak <span class="text-primary">NDA</span></h1>
 			</div>
 			<div class="col-lg-5 col-md-12">
-				<img src="img/hero.png" class="img-fluid rounded animated zoomIn" alt="">
+				<img src="<?= base_url('asset/pelanggan/') ?>img/hero.png" class="img-fluid rounded animated zoomIn" alt="">
 			</div>
 		</div>
 	</div>
@@ -50,14 +50,9 @@
 
 											<div class="w-100 d-flex flex-column text-start ps-4">
 												<div class="d-flex justify-content-between border-bottom border-primary pb-2 mb-2">
-													<h4><?= $value->nama_menu ?></h4>
-
+													<h5><?= $value->nama_menu ?></h5>
 													<input type="hidden" name="price" value="<?= $value->harga_menu - ($value->diskon / 100 * $value->harga_menu) ?>">
-													<h4 class="text-primary">Rp. <?= number_format($value->harga_menu - ($value->diskon / 100 * $value->harga_menu)) ?></h4>
-
-
-
-
+													<h5 class="text-primary">Rp. <?= number_format($value->harga_menu - ($value->diskon / 100 * $value->harga_menu)) ?></h5>
 												</div>
 												<p class="mb-0"><?= $value->deskripsi ?> </p>
 												<div class="row">
@@ -86,10 +81,10 @@
 
 										<div class="w-100 d-flex flex-column text-start ps-4">
 											<div class="d-flex justify-content-between border-bottom border-primary pb-2 mb-2">
-												<h4><?= $value->nama_menu ?></h4>
+												<h5><?= $value->nama_menu ?></h5>
 
 												<input type="hidden" name="price" value="<?= $value->harga_menu ?>">
-												<h4 class="text-primary">Rp. <?= number_format($value->harga_menu) ?></h4>
+												<h5 class="text-primary">Rp. <?= number_format($value->harga_menu) ?></h5>
 											</div>
 											<p class="mb-0"><?= $value->deskripsi ?> </p>
 											<div class="row">

@@ -59,6 +59,23 @@
 							<a href="#" class="nav-item nav-link"></i>Selamat Datang, <?= $this->session->userdata('nama') ?></a>
 
 							<?php
+							$pelanggan = $this->db->query("SELECT * FROM `pelanggan` WHERE id_pelanggan='" . $this->session->userdata('id_pelanggan') . "'")->row();
+							?>
+							<a href="#" class="nav-item nav-link"></i>Level Member <?php if ($pelanggan->level_member == '3') {
+																					?>
+									<span class="badge bg-primary">Clasic : <?= $pelanggan->point ?> point</span>
+								<?php
+																					} else if ($pelanggan->level_member == '2') {
+								?>
+									<span class="badge bg-warning">Silver : <?= $pelanggan->point ?> point</span>
+								<?php
+																					} else if ($pelanggan->level_member == '1') {
+								?>
+									<span class="badge bg-success">Gold : <?= $pelanggan->point ?> point</span>
+								<?php
+																					} ?></a>
+
+							<?php
 							$jml = 0;
 							foreach ($this->cart->contents() as $key => $value) {
 								$jml += $value['qty'];
