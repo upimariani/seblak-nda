@@ -7,7 +7,7 @@
 				<h1 class="display-1 mb-4 animated bounceInDown">Seblak <span class="text-primary">NDA</span></h1>
 			</div>
 			<div class="col-lg-5 col-md-12">
-				<img src="<?= base_url('asset/pelanggan/') ?>img/hero.png" class="img-fluid rounded animated zoomIn" alt="">
+				<img src="<?= base_url('asset/') ?>picture.png" class="img-fluid rounded animated zoomIn" alt="">
 			</div>
 		</div>
 	</div>
