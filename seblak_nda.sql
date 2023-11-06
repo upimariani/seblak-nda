@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 31 Okt 2023 pada 11.17
+-- Waktu pembuatan: 06 Nov 2023 pada 15.29
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -44,7 +44,13 @@ INSERT INTO `detail_pemesanan` (`id_detail_pesan`, `id_pemesanan`, `id_menu`, `q
 (2, '2', 2, 2),
 (3, '2', 1, 1),
 (4, '3', 3, 1),
-(5, '1', 3, 1);
+(5, '1', 3, 1),
+(6, '2', 4, 1),
+(7, '2', 5, 2),
+(8, '3', 3, 3),
+(9, '3', 4, 4),
+(10, '4', 5, 4),
+(11, '4', 7, 3);
 
 -- --------------------------------------------------------
 
@@ -102,11 +108,11 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id_menu`, `nama_menu`, `harga_menu`, `stok_menu`, `gambar`, `deskripsi`) VALUES
-(3, 'Kerupuk Seblak Original 250 gram', '16000', '998', 'WhatsApp_Image_2023-10-17_at_15_42_56_35a38c07.jpg', 'Kerupuk seblak original'),
-(4, 'Kerupuk seblak pedas daun jeruk 250 gram', '16000', '10000', 'WhatsApp_Image_2023-10-17_at_15_42_55_d928feab.jpg', 'Cita rasa daun jeruk pedas'),
-(5, 'Kerupuk Seblak Original 500 gram', '37000', '1000', 'WhatsApp_Image_2023-10-17_at_15_42_56_35a38c071.jpg', 'Kerupuk seblak original '),
+(3, 'Kerupuk Seblak Original 250 gram', '16000', '997', 'WhatsApp_Image_2023-10-17_at_15_42_56_35a38c07.jpg', 'Kerupuk seblak original'),
+(4, 'Kerupuk seblak pedas daun jeruk 250 gram', '16000', '9998', 'WhatsApp_Image_2023-10-17_at_15_42_55_d928feab.jpg', 'Cita rasa daun jeruk pedas'),
+(5, 'Kerupuk Seblak Original 500 gram', '37000', '998', 'WhatsApp_Image_2023-10-17_at_15_42_56_35a38c071.jpg', 'Kerupuk seblak original '),
 (6, 'Kerupuk seblak pedas daun jeruk 500 gram', '37000', '1000', 'WhatsApp_Image_2023-10-17_at_15_42_56_956b6b22.jpg', 'Cita rasa daun jeruk pedas'),
-(7, 'Cimol Gemoy NDA', '10000', '1000', 'WhatsApp_Image_2023-10-17_at_15_42_56_2488d9b5.jpg', 'Cimol gemoy'),
+(7, 'Cimol Gemoy NDA', '10000', '999', 'WhatsApp_Image_2023-10-17_at_15_42_56_2488d9b5.jpg', 'Cimol gemoy'),
 (8, 'Pedesan Ceker', '12000', '1000', 'WhatsApp_Image_2023-10-25_at_14_57_06_fa449c52.jpg', 'Ceker pedas');
 
 -- --------------------------------------------------------
@@ -162,7 +168,9 @@ CREATE TABLE `pemesanan` (
 --
 
 INSERT INTO `pemesanan` (`id_pemesanan`, `id_pelanggan`, `tgl_pesan`, `total_pesan`, `status_pesan`, `status_pembayaran`, `bukti_pembayaran`, `prov`, `kota`, `expedisi`, `estimasi`, `ongkir`, `alamat_detail`, `time_pesan`) VALUES
-(1, 1, '2023-10-29', 16000, 0, 0, '0', 'Jawa Barat', 'Bekasi', 'jne', '1-2 Hari', 17000, 'Jln. Patimura No.123', '2023-10-29 00:53:39');
+(1, 1, '2023-10-29', 16000, 0, 0, '0', 'Jawa Barat', 'Bekasi', 'jne', '1-2 Hari', 17000, 'Jln. Patimura No.123', '2023-10-29 00:53:39'),
+(3, 2, '2023-11-06', 32000, 4, 0, NULL, '0', '0', '0', '0', 0, '0', '2023-11-06 14:01:40'),
+(4, 1, '2023-11-06', 47000, 4, 0, '0', '0', '0', '0', '0', 0, '0', '2023-11-06 14:02:09');
 
 -- --------------------------------------------------------
 
@@ -242,7 +250,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `detail_pemesanan`
 --
 ALTER TABLE `detail_pemesanan`
-  MODIFY `id_detail_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_detail_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `diskon`
@@ -272,7 +280,7 @@ ALTER TABLE `pelanggan`
 -- AUTO_INCREMENT untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

@@ -41,6 +41,16 @@
 					</a>
 				</li>
 				<li class="nav-item">
+					<a href="<?= base_url('Admin/cPelanggan') ?>" class="nav-link  <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cPelanggan') {
+																						echo 'active';
+																					}  ?>">
+						<i class="nav-icon fas fa-users"></i>
+						<p>
+							Data Pelanggan
+						</p>
+					</a>
+				</li>
+				<li class="nav-item">
 					<a href="<?= base_url('Admin/cMenu') ?>" class="nav-link  <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cMenu') {
 																					echo 'active';
 																				}  ?>">
@@ -78,6 +88,16 @@
 						<i class="nav-icon fas fa-shopping-cart"></i>
 						<p>
 							Transaksi
+						</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<?= base_url('Admin/cTransaksiLangsung') ?>" class="nav-link  <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cTransaksiLangsung') {
+																								echo 'active';
+																							}  ?>">
+						<i class="nav-icon fas fa-barcode"></i>
+						<p>
+							Transaksi Langsung
 						</p>
 					</a>
 				</li>
