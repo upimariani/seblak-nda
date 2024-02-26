@@ -4,8 +4,8 @@
 		<div class="p-5 bg-light rounded contact-form">
 			<div class="row g-4">
 				<div class="col-12">
-					<small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Get in touch</small>
-					<h1 class="display-5 mb-0">Cart Pelanggan</h1>
+					<small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Keranjang</small>
+					<h1 class="display-5 mb-0">Keranjang Pelanggan</h1>
 				</div>
 
 				<div class="col-md-12 col-lg-12">
@@ -16,7 +16,7 @@
 								<th>No</th>
 								<th>Gambar</th>
 								<th>Nama Produk</th>
-								<th>Quantity</th>
+								<th>Jumlah</th>
 								<th>Harga</th>
 								<th>Subtotal</th>
 								<th>Action</th>

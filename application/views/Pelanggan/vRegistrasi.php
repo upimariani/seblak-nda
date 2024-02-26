@@ -36,8 +36,8 @@
 							<div class="col-lg-6"><input type="text" name="username" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="Masukkan Username" required></div>
 							<div class="col-lg-6"><input type="text" name="password" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="Masukkan Password" required></div>
 						</div>
-						<p>Anda Sudah memiliki akun? <a href="<?= base_url('Pelanggan/cLogin') ?>">Login Here</a></p>
-						<button type="submit" class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill" type="submit">Registrasi</button>
+						<p>Anda Sudah memiliki akun? <a href="<?= base_url('Pelanggan/cLogin') ?>">Masuk</a></p>
+						<button type="submit" class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill" type="submit">Daftar</button>
 					</form>
 				</div>
 

@@ -20,6 +20,16 @@ class cHome extends CI_Controller
 		$this->load->view('Pelanggan/vHome', $data);
 		$this->load->view('Pelanggan/Layout/footer');
 	}
+	public function complain()
+	{
+		$data = array(
+			'id_pemesanan' => '0',
+			'kritik_saran' => $this->input->post('complain')
+		);
+		$this->db->insert('kritik_saran', $data);
+		$this->session->set_flashdata('success', 'Complain Anda Berhasil Dikirim...');
+		redirect('Pelanggan/cHome');
+	}
 }
 
 /* End of file cHome.php */

@@ -27,8 +27,8 @@
 					<form action="<?= base_url('Pelanggan/cLogin/login') ?>" method="POST">
 						<input type="text" name="username" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="Masukkan Username" required>
 						<input type="password" name="password" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="Masukkan Password" required>
-						<p>Anda Belum memiliki akun? <a href="<?= base_url('Pelanggan/cLogin/registrasi') ?>">Registrasi Here</a></p>
-						<button type="submit" class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill" type="submit">Login</button>
+						<p>Anda Belum memiliki akun? <a href="<?= base_url('Pelanggan/cLogin/registrasi') ?>">Daftar Disini</a></p>
+						<button type="submit" class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill" type="submit">Masuk</button>
 					</form>
 				</div>
 

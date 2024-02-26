@@ -16,6 +16,8 @@ class mHome extends CI_Model
 		$this->db->from('kritik_saran');
 		$this->db->join('pemesanan', 'kritik_saran.id_pemesanan = pemesanan.id_pemesanan', 'left');
 		$this->db->join('pelanggan', 'pelanggan.id_pelanggan = pemesanan.id_pelanggan', 'left');
+		// $this->db->where('kritik_saran.id_pemesanan != 0');
+
 		return $this->db->get()->result();
 	}
 }

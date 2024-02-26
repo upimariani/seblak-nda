@@ -89,7 +89,7 @@
 			<!-- Main row -->
 			<div class="row">
 				<!-- Left col -->
-				<div class="col-md-6">
+				<div class="col-md-12">
 					<!-- MAP & BOX PANE -->
 
 

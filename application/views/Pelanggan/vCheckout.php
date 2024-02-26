@@ -9,7 +9,7 @@
 				<div class="border-bottom border-top border-primary bg-light py-5 px-4">
 					<div class="text-center">
 						<small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Book Us</small>
-						<h1 class="display-5 mb-5">Checkout</h1>
+						<h1 class="display-5 mb-5">Pengiriman</h1>
 					</div>
 					<form action="<?= base_url('Pelanggan/cCheckout/pesan') ?>" method="POST">
 						<div class="row g-4 form">

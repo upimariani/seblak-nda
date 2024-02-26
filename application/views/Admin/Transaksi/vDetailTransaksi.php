@@ -92,7 +92,19 @@
 							<!-- accepted payments column -->
 							<div class="col-6">
 
-
+								<?php
+								if ($detail_transaksi['transaksi']->status_pembayaran == '1') {
+								?>
+									<table class="table table-striped">
+										<tr>
+											<td>Pembayaran : <br>
+												<img style="width: 150px;" src="<?= base_url('asset/pembayaran/' . $detail_transaksi['transaksi']->bukti_pembayaran) ?>">
+											</td>
+										</tr>
+									</table>
+								<?php
+								}
+								?>
 							</div>
 							<!-- /.col -->
 							<div class="col-6">

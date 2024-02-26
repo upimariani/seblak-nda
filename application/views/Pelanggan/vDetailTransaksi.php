@@ -54,6 +54,17 @@
 							</table>
 							</form>
 						<?php
+						} else if ($detail_transaksi['transaksi']->status_pembayaran == '1') {
+						?>
+							<table class="table table-striped">
+								<tr>
+									<td>Pembayaran : <br>
+										<img style="width: 150px;" src="<?= base_url('asset/pembayaran/' . $detail_transaksi['transaksi']->bukti_pembayaran) ?>">
+									</td>
+								</tr>
+							</table>
+							</form>
+						<?php
 						} else if ($detail_transaksi['transaksi']->status_pesan == '3') {
 						?>
 							<a href="<?= base_url('Pelanggan/cPesananSaya/pesanan_diterima/' . $detail_transaksi['transaksi']->id_pemesanan) ?>" class="btn btn-primary">Pesanan Diterima</a>
