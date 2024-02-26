@@ -96,8 +96,15 @@
 											</div>
 											<p class="mb-0"><?= $value->deskripsi ?> </p>
 											<div class="row">
-												<div class="col-lg-6"><button type="submit" class="btn btn-primary mt-3">Tambah Keranjang</button></div>
-												<div class="col-lg-6"></div>
+												<?php
+												if ($this->session->userdata('id_pelanggan') != '') {
+												?>
+													<div class="col-lg-6"><button type="submit" class="btn btn-primary mt-3">Tambah Keranjang</button></div>
+													<div class="col-lg-6"></div>
+												<?php
+												}
+												?>
+
 											</div>
 
 										</div>

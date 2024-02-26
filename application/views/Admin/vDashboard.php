@@ -73,18 +73,16 @@
 			</div>
 			<!-- /.row -->
 
-			<!-- <div class="row">
-				<div class="col-6 table-responsive">
-					<canvas id="grafik_member" height="150"></canvas>
 
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<canvas id="grafik_transaksi" height="80"></canvas>
 
+						<!-- /.col -->
+					</div>
 				</div>
-				<div class="col-6 table-responsive">
-					<canvas id="grafik_transaksi" height="150"></canvas>
-
-
-				</div>
-		</div> -->
+			</div>
 
 			<!-- Main row -->
 			<div class="row">

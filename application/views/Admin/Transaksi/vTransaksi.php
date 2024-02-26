@@ -36,21 +36,27 @@
 				<div class="col-12 col-sm-12">
 					<div class="card card-warning card-tabs">
 						<div class="card-header p-0 pt-1">
+							<?php
+							$belum_bayar = $this->db->query("SELECT COUNT(id_pemesanan) as jml FROM `pemesanan` WHERE status_pesan='0'")->row();
+							$konfirmasi = $this->db->query("SELECT COUNT(id_pemesanan) as jml FROM `pemesanan` WHERE status_pesan='1'")->row();
+							$proses = $this->db->query("SELECT COUNT(id_pemesanan) as jml FROM `pemesanan` WHERE status_pesan='2'")->row();
+							$kirim = $this->db->query("SELECT COUNT(id_pemesanan) as jml FROM `pemesanan` WHERE status_pesan='3'")->row();
+							?>
 							<ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
 								<li class="nav-item">
-									<a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Belum Bayar</a>
+									<a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Belum Bayar <span class="badge badge-success"><?= $belum_bayar->jml ?></span></a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Menunggu Konfirmasi</a>
+									<a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Menunggu Konfirmasi <span class="badge badge-success"><?= $konfirmasi->jml ?></span></a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Pesanan Diproses</a>
+									<a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Pesanan Diproses <span class="badge badge-success"><?= $proses->jml ?></span></a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Pesanan Dikirim</a>
+									<a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Pesanan Dikirim <span class="badge badge-success"><?= $kirim->jml ?></span></a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" id="custom-tabs-one-selesai-tab" data-toggle="pill" href="#custom-tabs-one-selesai" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Pesanan Selesai</a>
+									<a class="nav-link" id="custom-tabs-one-selesai-tab" data-toggle="pill" href="#custom-tabs-one-selesai" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Pesanan Selesai </a>
 								</li>
 							</ul>
 						</div>

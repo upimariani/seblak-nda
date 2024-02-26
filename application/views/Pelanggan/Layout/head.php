@@ -42,7 +42,7 @@
 	<div class="container-fluid nav-bar">
 		<div class="container">
 			<nav class="navbar navbar-light navbar-expand-lg py-4">
-				<a href="index.html" class="navbar-brand">
+				<a href="<?= base_url('Pelanggan/cHome') ?>" class="navbar-brand">
 					<h1 class="text-primary fw-bold mb-0">Seblak<span class="text-dark">NDA</span> </h1>
 				</a>
 				<button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -83,6 +83,10 @@
 							?>
 							<a href="<?= base_url('Pelanggan/cCart/view') ?>" class="nav-item nav-link"><i class="bi bi-cart"></i><span class="badge bg-success"><?= $jml ?></span></a>
 
+						<?php
+						} else {
+						?>
+							<a href="<?= base_url('Pelanggan/cLogin') ?>" class="nav-item nav-link">Login</a>
 						<?php
 						}
 						?>
